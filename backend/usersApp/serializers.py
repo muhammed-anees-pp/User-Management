@@ -11,30 +11,19 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id','username','email','profile_image','is_admin']
 
+        extra_kwargs = {
+            'username': {'required': False},
+            'email': {'required': False}
+        }
+
     def get_is_admin(self, obj):
         return getattr(obj, 'is_admin',False) or obj.is_staff or obj.is_superuser
-
-
-# class RegisterSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['username','email','password','profile_image']
-#         extra_kwargs = {'password':{'write_only':True}}
-
-    
-
-#     def create(self, validated_data):
-#         password = validated_data.pop('password')
-#         user = User.objects.create_user(**validated_data)
-#         user.set_password(password)
-#         user.save()
-#         return user
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username','email','password']  # Removed profile_image
+        fields = ['username','email','password']
         extra_kwargs = {'password':{'write_only':True}}
 
     def create(self, validated_data):

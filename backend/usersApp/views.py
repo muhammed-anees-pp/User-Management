@@ -6,8 +6,10 @@ from rest_framework.response import Response
 from .serializers import RegisterSerializer,UserSerializer
 from django.contrib.auth import get_user_model
 
+from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
 
-# Create your views here.
+
 
 User = get_user_model()
 
@@ -39,10 +41,6 @@ class MeView(APIView):
         return Response(serializer.data)
 
 
-from rest_framework import status
-from rest_framework.parsers import MultiPartParser, FormParser
-
-# Add this new view for profile image updates
 class ProfileImageView(APIView):
     permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
