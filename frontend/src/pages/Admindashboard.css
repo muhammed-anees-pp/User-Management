@@ -1,0 +1,202 @@
+.adminContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.adminTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.adminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.adminSearch {
+  padding: 10px;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.adminForm {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.adminInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  min-width: 150px;
+}
+
+.logoutButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: red;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.adminFormButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.adminButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 80px;
+  font-size: 14px;
+}
+
+.adminButton:hover {
+  opacity: 0.9;
+}
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+}
+
+.adminTh {
+  padding: 12px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-weight: 600;
+}
+
+.adminTr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s;
+}
+
+.adminTr:hover {
+  background-color: #f8f9fa;
+}
+
+.adminTd {
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.adminTd .adminButton:not(:last-child) {
+  margin-right: 15px;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.adminLoading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 90%;
+}
+
+.modalTitle {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modalText {
+  margin: 0 0 24px 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modalButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 80px;
+  font-size: 14px;
+}
+
+.modalButton:hover {
+  opacity: 0.9;
+}
+
+.button-primary {
+  background: #007BFF;
+}
+
+.button-success {
+  background: #4CAF50;
+}
+
+.button-danger {
+  background: #E74C3C;
+}
+
+.button-secondary {
+  background: #6C757D;
+}
+
+.adminButton:disabled,
+.adminInput:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
