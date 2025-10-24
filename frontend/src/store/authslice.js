@@ -75,7 +75,7 @@ const authSlice=createSlice({
             .addCase(loginUser.pending,(state)=>{state.loading=true;})
             .addCase(loginUser.fulfilled,(state,action)=>{
                 state.loading = false;
-                state.error = null; // Clear error on success
+                state.error = null;
                 state.isAdmin=action.payload.is_admin;
             })
             .addCase(loginUser.rejected,(state,action)=>{
@@ -88,7 +88,7 @@ const authSlice=createSlice({
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.user = action.payload;
                 state.loading = false;
-                state.error = null; // Clear error on success
+                state.error = null;
             })
             .addCase(registerUser.rejected, (state,action) => {
                 state.loading = false;
