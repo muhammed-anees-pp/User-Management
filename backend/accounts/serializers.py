@@ -6,7 +6,6 @@ from .models import CustomUser
 
 User = get_user_model()
 
-
 class RegisterSerializers(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, validators=[validate_password],min_length=8)
 
@@ -62,14 +61,34 @@ class LoginSerializers(serializers.Serializer):
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=False)
+    is_admin = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email','profile_image', 'password']
+        fields = ['id', 'username', 'email', 'profile_image', 'password', 'is_superuser', 'is_staff', 'is_admin']
+        read_only_fields = ['is_superuser', 'is_staff', 'is_admin']
     
+    def get_is_admin(self, obj):
+        return obj.is_superuser or obj.is_staff or obj.is_admin
+
     def validate_email(self, value):
+        instance = getattr(self, 'instance', None)
+        
+        if instance and instance.email == value:
+            return value
+            
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("Email already taken")
+        return value
+
+    def validate_username(self, value):
+        instance = getattr(self, 'instance', None)
+        
+        if instance and instance.username == value:
+            return value
+            
+        if User.objects.filter(username=value).exists():
+            raise serializers.ValidationError("Username already taken")
         return value
 
     def create(self, validated_data):
@@ -82,4 +101,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         password = validated_data.pop('password', None)
+        if password:
+            instance.set_password(password)
         return super().update(instance, validated_data)
