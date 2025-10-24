@@ -1,0 +1,240 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.profile-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.profile-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.image-section {
+  margin-bottom: 1.5rem;
+}
+
+.current-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.image-with-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e8f4fd;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.placeholder-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border: 2px dashed #ddd;
+}
+
+.image-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.file-label {
+  display: inline-block;
+  background: #4a90e2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border: none;
+}
+
+.file-label:hover {
+  background: #3d7bc0;
+}
+
+.file-input {
+  display: none;
+}
+
+.update-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.update-btn:hover:not(:disabled) {
+  background: #218838;
+}
+
+.update-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.remove-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.remove-btn:hover:not(:disabled) {
+  background: #c82333;
+}
+
+.remove-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.cancel-btn:hover {
+  background: #5a6268;
+}
+
+.profile-info {
+  text-align: left;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  color: #444;
+  flex-grow: 1;
+}
+
+.profile-info p {
+  margin: 0.5rem 0;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.profile-info p:last-child {
+  border-bottom: none;
+}
+
+.bottom-section {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.logout-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.logout-btn:hover {
+  background: #5a6268;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 1.5rem;
+    margin: 1rem;
+    min-height: 450px;
+  }
+  
+  .profile-image, .placeholder-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .placeholder-image {
+    font-size: 2.5rem;
+  }
+  
+  .image-actions, .preview-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
